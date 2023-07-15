@@ -1,118 +1,108 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+// import NavBar from "@/components/NavBar";
+import BubbleRail from "@/components/BubbleRail"
+import ChatContainer from "@/components/ChatContainer"
 
-const inter = Inter({ subsets: ['latin'] })
+function A({ href, children }) {
+  return (
+    <a href={href} target="_blank" className="font-bold underline">
+      {children}
+    </a>
+  )
+}
 
 export default function Home() {
+
+  // const data1 = [
+  //   [
+  //     ['Hey, I\'m Dennis! A freshly graduated software engineer based in Jakarta 👋', 'HI'],
+  //   ],
+  //   ['I\'m a tech polymath experienced in building and deploying scalable apps.',
+  //       (<>
+  //         Check out some of my projects on <A href="https://www.github.com/dnswd">GitHub</A>.
+  //       </>)],
+  //     [(
+  //       <>
+  //         Currently looking for a job, so if you're looking for a full-stack engineer, backend engineer, MLOps engineer, or a cloud engineer you can check my hit me up on <A href="https://www.linkedin.com/in/dnswd/">LinkedIn</A>, or download my resume <A href="/Resume_Dennis_A_Walangadi.pdf">here</A>.
+  //       </>
+  //     )],
+  //     ['Hi']
+  // ]
+
+  const data = [
+    [
+      [
+        'Hey, I\'m Dennis! Software engineer at OY! Indonesia, based in Jakarta 👋'
+      ],
+      [
+        'I\'m a tech polymath experienced in building, deploying, and optimizing scalable apps.'
+      ]
+    ],
+    [
+      [
+        (<>
+          Currently on the hunt for a job, so if you happen to be in need of a full-stack engineer, backend engineer, MLOps engineer, or a cloud engineer, feel free to hit me up on <A href="https://www.linkedin.com/in/dnswd/">
+            LinkedIn</A>.
+        </>),
+        (<>
+          You can check my full résumé <A href="/Resume_Dennis_A_Walangadi.pdf">here</A>, or we can &apos;ngopi&apos; together if you&apos;re in Jakarta!
+        </>)
+      ]
+    ],
+    [
+      [
+        'I\'ve been a teaching assistant for a year at the Faculty of Computer Science, University of Indonesia and awarded a scholarship by SEA-based VCs.'
+      ],
+      [
+        'I enjoy building side projects for fun and occasionally submit them as college assignments.'
+      ]
+    ],
+    // TODO: Experience, project, writings
+    // [
+    //   [
+    //     'I\'m currently a software engineer at OY! Indonesia'
+    //   ]
+    // ]
+  ]
+  // const data = 
+
+  // const data1 = [
+
+  // ]
+
+  // const data = [[['Hello World', 'I am'], ['A']], [['B']]]
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="relative">
+      { /* <NavBar /> */}
+      { /*
+        TODO:
+        - [x] Basic chat design
+        - [x] Bubble design
+        - [-] Text is growing, static text?
+        - [x] Copywriting abstraction
+        - [x] Top and bottom gradient -- v0.1 release
+        - [ ] Bubble tail
+        - [ ] User input
+        - [ ] Button
+        - [ ] Drawer (pretermined input) -- v0.2 release
+        - [ ] User input functionality
+        - [ ] Dynamic chat bubble
+        - [ ] Intent detection (full-text search?)
+      */ }
+      <main className="h-screen">
+        <div className="flex w-auto min-h-full content-center items-center flex-nowrap flex-col gap-0 h-min p-0 relative overflow-hidden bg-pitch">
+          <header className="relative w-full sm:w-96 pt-32 px-4 sm:px-0 content-start items-start flex flex-none flex-col flex-nowrap gap-7 h-min justify-start overflow-visible z-10">
+            { /* Chat container */}
+            {data.map((rails, index) => (
+              <ChatContainer key={'rails-' + index} >
+                <BubbleRail data={rails} />
+              </ChatContainer>
+            ))}
+          </header>
+          <div className="flex-none h-[20vh] overflow-hidden relative w-full" />
+          <div className="grain z-100" />
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </main>
+    </div>
+  );
 }
