@@ -34,7 +34,22 @@ export default function Home() {
         'Hey, I\'m Dennis! Software engineer at OY! Indonesia, based in Jakarta 👋'
       ],
       [
-        'I\'m a tech polymath experienced in building, deploying, and optimizing scalable apps.'
+        'I\'m a tech enthusiast experienced in building, hacking, and optimizing softwares. I enjoy tinkering and building side projects on my free time.'
+      ],
+    ],
+    [
+      [
+        'I\'ve been a teaching assistant at the Faculty of Computer Science, University of Indonesia and awarded a scholarship by SEA-based VCs.'
+      ]
+    ],
+    
+    [
+      [
+        (
+          <>
+          I usually write a journal about an idea or something I recently learned or built. You can <A href="/journal">read my journal here</A>.
+          </>
+        )
       ]
     ],
     [
@@ -44,16 +59,8 @@ export default function Home() {
             LinkedIn</A>.
         </>),
         (<>
-          You can check my full résumé <A href="/Resume_Dennis_A_Walangadi.pdf">here</A>, or we can &apos;ngopi&apos; together if you&apos;re in Jakarta!
+          You can check my full résumé <A href="/Resume_Dennis_A_Walangadi.pdf">here</A>, or we can <i>ngopi</i> together if you&apos;re near South Jakarta!
         </>)
-      ]
-    ],
-    [
-      [
-        'I\'ve been a teaching assistant for a year at the Faculty of Computer Science, University of Indonesia and awarded a scholarship by SEA-based VCs.'
-      ],
-      [
-        'I enjoy building side projects for fun and occasionally submit them as college assignments.'
       ]
     ],
     // TODO: Experience, project, writings
